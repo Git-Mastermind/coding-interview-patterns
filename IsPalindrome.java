@@ -8,6 +8,9 @@ public class IsPalindrome {
         String[] strArray = word.split("");
         List<String> str = new ArrayList<>(Arrays.asList(strArray));
 
-        System.out.println(str);
+        String leftPointer = str.get(0);
+        String rightPointer = str.get(str.size() - 1);
+
+        
     }
 }

@@ -4,6 +4,20 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class IsPalindrome {
+
+    public List<String> removeSpaces(String word) {
+        String[] array = word.split("");
+        List<String> sentence = new ArrayList<>(Arrays.asList(array));
+
+        for (String c : sentence) {
+            if (c.equals(" ")) {
+                sentence.remove(sentence.indexOf(c));
+            }
+        }
+        return sentence;
+    }
+
+    
     public boolean isPalindrome(String word) {
         String[] strArray = word.split("");
         List<String> str = new ArrayList<>(Arrays.asList(strArray));

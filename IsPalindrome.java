@@ -9,33 +9,32 @@ public class IsPalindrome {
         String[] array = word.split("");
         List<String> sentence = new ArrayList<>(Arrays.asList(array));
 
-        for (String c : sentence) {
-            if (c.equals(" ")) {
-                sentence.remove(sentence.indexOf(c));
+        for (int i = 0; i <= sentence.size() - 1; i++) {
+            if (sentence.get(i).equals(" ")) {
+                sentence.remove(i);
             }
         }
         return sentence;
     }
 
-    
-    public boolean isPalindrome(String word) {
-        String[] strArray = word.split("");
-        List<String> str = new ArrayList<>(Arrays.asList(strArray));
 
-        String leftPointer = str.get(0);
-        String rightPointer = str.get(str.size() - 1);
+    public boolean isPalindrome(String word) {
+        List<String> sentence = this.removeSpaces(word);
+
+        String leftPointer = sentence.get(0);
+        String rightPointer = sentence.get(sentence.size() - 1);
         int leftCurrentIndex = 0;
-        int rightCurrentIndex = str.size() - 1;
+        int rightCurrentIndex = sentence.size() - 1;
 
         while (leftPointer.equals(rightPointer)) {
-            if (leftCurrentIndex == str.size() - 1 && rightCurrentIndex == 0) {
+            if (leftCurrentIndex == sentence.size() - 1 && rightCurrentIndex == 0) {
                 return true;
             }
             leftCurrentIndex++;
             rightCurrentIndex--;
 
-            leftPointer = str.get(leftCurrentIndex);
-            rightPointer = str.get(rightCurrentIndex);
+            leftPointer = sentence.get(leftCurrentIndex);
+            rightPointer = sentence.get(rightCurrentIndex);
         }
         return false;
 
